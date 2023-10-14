@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Exit on error
-cd ./ecommerce/
 
 set -o errexit
 
