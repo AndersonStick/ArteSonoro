@@ -23,7 +23,8 @@ import {
     EMPTY_CART_FAIL,
     SYNCH_CART_SUCCESS,
     SYNCH_CART_FAIL,
-} from './types'
+} from './types';
+
 
 export const add_item = product => async dispatch =>{
     if (localStorage.getItem('access')) {
@@ -151,8 +152,8 @@ export const get_total = () => async dispatch => {
             });
         }
     } else {
-        let total = 0.0;
-        let compare_total = 0.0;
+        let total = 0;
+        let compare_total = 0;
         let cart = [];
 
         if (localStorage.getItem('cart')) {
@@ -166,10 +167,11 @@ export const get_total = () => async dispatch => {
 
         dispatch({
             type: GET_TOTAL,
-            payload: [parseFloat(total.toFixed(3)), parseFloat(compare_total.toFixed(3))]
+            payload: [total, compare_total]
         });
     }
 }
+
 
 export const get_item_total = () => async dispatch => {
     if (localStorage.getItem('access')) {

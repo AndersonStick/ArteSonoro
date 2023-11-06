@@ -21,7 +21,7 @@ function classNames(...classes) {
 
 function Navbar({
   isAuthenticated,
-  user,
+  // user,
   logout,
   get_categories,
   categories,
@@ -101,8 +101,6 @@ function Navbar({
                 </Link>
               )}
             </Menu.Item>
-            
-            
             <form method="POST" action="#">
               <Menu.Item>
                 {({ active }) => (
@@ -149,18 +147,18 @@ function Navbar({
                 <span className="sr-only">Logo Motospit</span>
                 <img
                   className="h-8 w-auto sm:h-20"
-                  src="https://scontent.fbog4-2.fna.fbcdn.net/v/t39.30808-6/308859207_159655673376414_7733759750617869538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeErc5dpZB5ZwkMIXE2m-ic1rsJ_D4LDf7-uwn8PgsN_v3dB8zV_RBIgM84rWOxrEpaYzJHNaU99mnACQWdLq64n&_nc_ohc=zwQ45HywrMUAX9pSwkh&_nc_ht=scontent.fbog4-2.fna&oh=00_AfB5PzpKMLulKQGfB7_drU-1MPNDJAcgn6W1qQpOtBpYNA&oe=652B82D2"
-                  alt=""
+                  src="https://scontent.fbog18-2.fna.fbcdn.net/v/t39.30808-6/308859207_159655673376414_7733759750617869538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeErc5dpZB5ZwkMIXE2m-ic1rsJ_D4LDf7-uwn8PgsN_v3dB8zV_RBIgM84rWOxrEpaYzJHNaU99mnACQWdLq64n&_nc_ohc=OLvffabm-XAAX8V-JHG&_nc_zt=23&_nc_ht=scontent.fbog18-2.fna&oh=00_AfCSv91VxUFsRCjd8drehSE3iCfa-woSKgQjQerMuznx1g&oe=65492C92"
+                  alt="Logo Motospit"
                 />
             </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
             <Link to="/cart" className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-custom-blue">
-              <span className="sr-only">Open menu</span>
+              <span className="sr-only">Abrir menu</span>
               <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
             </Link>
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-custom-blue">
-              <span className="sr-only">Open menu</span>
+              <span className="sr-only">Abrir menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
@@ -170,20 +168,22 @@ function Navbar({
               <NavLink to="/shop" className="mt-2 text-base font-medium text-gray-500 hover:text-gray-900">
                 Catálogo
               </NavLink>
-
-              {window.location.pathname==='/search'?<></>:<SearchBox 
-              search={search}
-              onChange={onChange}
-              onSubmit={onSubmit}
-              categories={categories}
-              />}
-
+              {
+              window.location.pathname==='/search'?
+              <></>:
+              <SearchBox 
+                search={search}
+                onChange={onChange}
+                onSubmit={onSubmit}
+                categories={categories}
+              />
+              }
             </Popover.Group>
             <div className="flex items-center md:ml-12">
-              {/* <Link to="/cart"> */}
+              <Link to="/cart">
                 <ShoppingCartIcon className="h-8 w-8 cursor-pointer text-gray-300 mr-4"/>
                 <span className="text-xs absolute top-1 mt-3 ml-4 bg-red-500 text-white font-semibold rounded-full px-2 text-center">{total_items}</span>
-              {/* </Link> */}
+              </Link>
               {
                 isAuthenticated ? authLinks:guestLinks
               }
@@ -191,7 +191,6 @@ function Navbar({
           </div>
         </div>
       </div>
-
       <Transition
         as={Fragment}
         enter="duration-200 ease-out"
@@ -211,7 +210,7 @@ function Navbar({
                 <div>
                   <img
                     className="h-8 w-auto"
-                    src="https://scontent.fbog4-2.fna.fbcdn.net/v/t39.30808-6/308859207_159655673376414_7733759750617869538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeErc5dpZB5ZwkMIXE2m-ic1rsJ_D4LDf7-uwn8PgsN_v3dB8zV_RBIgM84rWOxrEpaYzJHNaU99mnACQWdLq64n&_nc_ohc=zwQ45HywrMUAX9pSwkh&_nc_ht=scontent.fbog4-2.fna&oh=00_AfB5PzpKMLulKQGfB7_drU-1MPNDJAcgn6W1qQpOtBpYNA&oe=652B82D2"
+                    src="https://scontent.fbog18-2.fna.fbcdn.net/v/t39.30808-6/308859207_159655673376414_7733759750617869538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeErc5dpZB5ZwkMIXE2m-ic1rsJ_D4LDf7-uwn8PgsN_v3dB8zV_RBIgM84rWOxrEpaYzJHNaU99mnACQWdLq64n&_nc_ohc=OLvffabm-XAAX8V-JHG&_nc_zt=23&_nc_ht=scontent.fbog18-2.fna&oh=00_AfCSv91VxUFsRCjd8drehSE3iCfa-woSKgQjQerMuznx1g&oe=65492C92"
                     alt="Logo Motospit"
                   />
                 </div>

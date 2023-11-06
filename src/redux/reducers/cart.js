@@ -24,10 +24,11 @@ import {
     SYNCH_CART_FAIL,
 } from '../actions/types';
 
+
 const initialState = {
     items: null,
-    amount: 0.000,
-    compare_amount: 0.000,
+    amount: 0,
+    compare_amount: 0,
     total_items: 0
 };
 
@@ -75,8 +76,8 @@ export default function Cart(state = initialState, action) {
         case GET_TOTAL_FAIL:
             return {
                 ...state,
-                amount: 0.000,
-                compare_amount: 0.000
+                amount: 0,
+                compare_amount: 0
             };
         case GET_TOTAL:
             return {
@@ -134,16 +135,16 @@ export default function Cart(state = initialState, action) {
             return {
                 ...state,
                 items: null,
-                amount: 0.000,
-                compare_amount: 0.000,
+                amount: 0,
+                compare_amount: 0,
                 total_items: 0
             };
         case EMPTY_CART:
             localStorage.removeItem('cart');
             return {
                 items: null,
-                amount: 0.000,
-                compare_amount: 0.000,
+                amount: 0,
+                compare_amount: 0,
                 total_items: 0
             };
         case SYNCH_CART_SUCCESS:

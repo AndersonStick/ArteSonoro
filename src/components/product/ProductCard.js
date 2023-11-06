@@ -1,4 +1,6 @@
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+
+
 const ProductCard =({product})=>{
     return(
         
@@ -7,17 +9,24 @@ const ProductCard =({product})=>{
                 <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                   <img
                     src={product.photo}
-                    alt=""
+                    alt="foto del producto"
                     className="w-full h-full object-center object-cover lg:w-full lg:h-full"
                   />
                 </div>
                 <h3 className="mt-4 flex justify-between text-gray-500">
-                  {/* <Link to={`/product/${product.id}`}> */}
+                  <Link to={`/product/${product.id}`}>
                     <span className="absolute inset-0" />
                     {product.name}
-                  {/* </Link> */}
+                  </Link>
                 </h3>
-                <p className="mt-1 text-sm text-gray-900">${product.price}</p>
+                <p className="mt-1 text-sm text-gray-900">
+                {product.price.toLocaleString('es-CO', {
+                  style: 'currency',
+                  currency: 'COP',
+                  minimumFractionDigits: 0, // Muestra solo el número entero
+                  maximumFractionDigits: 0 // Muestra solo el número entero
+                })}
+                </p>
               </div>
             </div>
     )

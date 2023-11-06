@@ -1,5 +1,5 @@
-import Layout from "../../hocs/Layout"
-import { connect } from "react-redux"
+import Layout from "../../hocs/Layout";
+import { connect } from "react-redux";
 import {
     remove_item,
     update_item,
@@ -10,8 +10,9 @@ import {
 import { useEffect, useState } from "react";
 import CartItem from "../../components/cart/CartItem";
 import { Link } from "react-router-dom";
-import { QuestionMarkCircleIcon } from '@heroicons/react/solid'
+import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
 import { setAlert } from "../../redux/actions/alert";
+
 
 const Cart = ({
     get_items,
@@ -98,23 +99,24 @@ const Cart = ({
         if (total_items < 1) {
             return(
                 <>
-                <Link to='/shop'>
-                    <button
-                    className="w-full bg-custom-blue border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-custom-hover-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-custom-blue">
-                    Buscar repuestos
-                    </button>
-                </Link>
+                    <Link to='/shop'>
+                        <button
+                        className="w-full bg-custom-blue border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-custom-hover-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-custom-blue">
+                        Buscar repuestos
+                        </button>
+                    </Link>
                 </>
             )
         } else if (!isAuthenticated) {
-            return(<>
-            <Link to='/login'>
-                <button
-                className="w-full bg-custom-blue border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-custom-hover-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-custom-blue">
-                Iniciar Sesión
-                </button>
-            </Link>
-            </>
+            return(
+                <>
+                    <Link to='/login'>
+                        <button
+                        className="w-full bg-custom-blue border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-custom-hover-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-custom-blue">
+                        Iniciar Sesión
+                        </button>
+                    </Link>
+                </>
             )
         } else {
             return(
@@ -127,7 +129,6 @@ const Cart = ({
                 </Link>
                 </>
             )
-           
         }
     }
 
@@ -135,18 +136,16 @@ const Cart = ({
         <Layout>
             <div className="bg-white">
                 <div className="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                    <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Carrito con ({total_items}) elementos</h1>
+                    <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Carrito con ({total_items}) productos</h1>
                     <div className="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
                     <section aria-labelledby="cart-heading" className="lg:col-span-7">
                         <h2 id="cart-heading" className="sr-only">
-                        Elementos en tu carrito
+                        Productos en tu carrito
                         </h2>
-
                         <ul className="border-t border-b border-gray-200 divide-y divide-gray-200">
                         {showItems()}
                         </ul>
                     </section>
-
                     {/* Order summary */}
                     <section
                         aria-labelledby="summary-heading"
@@ -160,7 +159,14 @@ const Cart = ({
 
                         <div className="flex items-center justify-between">
                             <dt className="text-sm text-gray-600">Subtotal</dt>
-                            <dd className="text-sm font-medium text-gray-900">${compare_amount}</dd>
+                            <dd className="text-sm font-medium text-gray-900">
+                                {compare_amount.toLocaleString('es-CO', {
+                                    style: 'currency',
+                                    currency: 'COP',
+                                    minimumFractionDigits: 0,
+                                    maximumFractionDigits: 0
+                                })}
+                            </dd>
                         </div>
 
                         <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
@@ -171,7 +177,7 @@ const Cart = ({
                                 <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
                             </a>
                             </dt>
-                            <dd className="text-sm font-medium text-gray-900">$5.00</dd>
+                            <dd className="text-sm font-medium text-gray-900">$0</dd>
                         </div>
 
                         <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
@@ -182,18 +188,24 @@ const Cart = ({
                                 <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
                             </a>
                             </dt>
-                            <dd className="text-sm font-medium text-gray-900">$8.32</dd>
+                            <dd className="text-sm font-medium text-gray-900">$0</dd>
                         </div>
 
                         <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                             <dt className="text-base font-medium text-gray-900">Total</dt>
-                            <dd className="text-base font-medium text-gray-900">${amount}</dd>
+                            <dd className="text-base font-medium text-gray-900">
+                                {amount.toLocaleString('es-CO', {
+                                    style: 'currency',
+                                    currency: 'COP',
+                                    minimumFractionDigits: 0,
+                                    maximumFractionDigits: 0
+                                })}
+                            </dd>
                         </div>
                         </dl>
-
-                        <div className="mt-6">
-                        {checkoutButton()}
-                        </div>
+                            <div className="mt-6">
+                                {checkoutButton()}
+                            </div>
                     </section>
                     </div>
                     

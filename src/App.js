@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import store from './store';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Home from './containers/Home';
 import Error404 from './containers/errors/Error404';
@@ -45,8 +45,6 @@ function App() {
           <Route exact path="/product/:productId" element={<ProductDetail/>}/>
           <Route exact path="/search" element={<Search/>}/>
           <Route exact path="/thankyou" element={<ThankYou/>}/>
-
-
 
         </Routes>
       </Router>

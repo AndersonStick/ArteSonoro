@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { XIcon, CheckIcon, ClockIcon } from "@heroicons/react/solid";
 import { useEffect } from "react";
+
+
 const CartItem = ({
     item,
     count,
@@ -30,9 +32,8 @@ const CartItem = ({
             try {
                 if (item.product.quantity >= item_count) {
                     await update_item(item, item_count);
-                }
-                else {
-                    setAlert('No hay unidades disponibles', 'red');
+                } else {
+                    setAlert('No hay unidades disponibles', 'bg-red-100');
                 }
                 setRender(!render);
             } catch(err) {
@@ -53,11 +54,10 @@ const CartItem = ({
             <div className="flex-shrink-0">
             <img
                 src={item.product.photo}
-                alt=""
+                alt="Foto del producto"
                 className="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48"
             />
             </div>
-
             <div className="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
             <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
                 <div>
@@ -68,8 +68,14 @@ const CartItem = ({
                     </Link>
                     </h3>
                 </div>
-                
-                <p className="mt-1 text-sm font-medium text-gray-900">$ {item.product.price}</p>
+                    <p className="mt-1 text-xl font-medium text-gray-900">
+                        {item.product.price.toLocaleString('es-CO', {
+                            style: 'currency',
+                            currency: 'COP',
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0
+                        })}
+                    </p>
                 </div>
 
                 <div className="mt-4 sm:mt-0 sm:pr-9">
@@ -92,10 +98,9 @@ const CartItem = ({
                     <button 
                         type="submit"
                         className="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
-                        <span className="mx-2">Actualizar</span>
+                        <span className="mx-2">Actualizar cantidad</span>
                     </button>
                 </form>
-
                 <div className="absolute top-0 right-0">
                     <button 
                     onClick={removeItemHandler}
@@ -106,7 +111,6 @@ const CartItem = ({
                 </div>
                 </div>
             </div>
-
             <p className="mt-4 flex text-sm text-gray-700 space-x-2">
                 {     
                     item.product && 
@@ -131,4 +135,5 @@ const CartItem = ({
         </li>
     )
 }
+
 export default CartItem

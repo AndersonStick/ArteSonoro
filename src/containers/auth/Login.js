@@ -1,10 +1,12 @@
-import Layout from '../../hocs/Layout'
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
-import { login } from '../../redux/actions/auth'
-import { Circles } from  'react-loader-spinner'
-import { Navigate } from 'react-router'
+import Layout from '../../hocs/Layout';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import { login } from '../../redux/actions/auth';
+import { Circles } from  'react-loader-spinner';
+import { Navigate } from 'react-router';
+
+
 const Login = ({
   login,
   loading
@@ -43,7 +45,7 @@ const Login = ({
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
-            src="https://scontent.fbog4-2.fna.fbcdn.net/v/t39.30808-6/308859207_159655673376414_7733759750617869538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeErc5dpZB5ZwkMIXE2m-ic1rsJ_D4LDf7-uwn8PgsN_v3dB8zV_RBIgM84rWOxrEpaYzJHNaU99mnACQWdLq64n&_nc_ohc=zwQ45HywrMUAX9pSwkh&_nc_ht=scontent.fbog4-2.fna&oh=00_AfB5PzpKMLulKQGfB7_drU-1MPNDJAcgn6W1qQpOtBpYNA&oe=652B82D2"
+            src="https://scontent.fbog18-2.fna.fbcdn.net/v/t39.30808-6/308859207_159655673376414_7733759750617869538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeErc5dpZB5ZwkMIXE2m-ic1rsJ_D4LDf7-uwn8PgsN_v3dB8zV_RBIgM84rWOxrEpaYzJHNaU99mnACQWdLq64n&_nc_ohc=OLvffabm-XAAX8V-JHG&_nc_zt=23&_nc_ht=scontent.fbog18-2.fna&oh=00_AfCSv91VxUFsRCjd8drehSE3iCfa-woSKgQjQerMuznx1g&oe=65492C92"
             alt="Logo Motospit"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Ingresa a tu cuenta</h2>
