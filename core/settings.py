@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 
 DOMAIN = os.environ.get('DOMAIN')
 
@@ -224,13 +224,25 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 
 if not DEBUG:
-    DEFAULT_FROM_EMAIL = 'Vudera - Academia de Software <mail@vudera.com>' # Formato del correo
+    DEFAULT_FROM_EMAIL = 'Motospit - Almacen de repuestos de motos <motospitecommerce@gmail.com>'
     EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = env('EMAIL_HOST')
     EMAIL_HOST_USER = env('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
     EMAIL_PORT = env('EMAIL_PORT')
     EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+
+
+
+
+
 
     # # django-ckeditor will not work with S3 through django-storages without this line in settings.py
     # AWS_QUERYSTRING_AUTH = False
