@@ -241,6 +241,7 @@ if not DEBUG:
     EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
