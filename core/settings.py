@@ -25,7 +25,8 @@ ALLOWED_HOSTS = [
     'www.motospit.com.co',
     'localhost',
     '127.0.0.1',
-    'ecommerce-primer-deploy-nuevo-repo.onrender.com'
+    'ecommerce-primer-deploy-nuevo-repo.onrender.com',
+    'https://ecommerce-primer-deploy-nuevo-repo.onrender.com',
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
