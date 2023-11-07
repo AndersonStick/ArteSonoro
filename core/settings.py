@@ -108,7 +108,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 DATABASES = {
-    "default" : dj_database_url.parse(env('THE_DATABASE_URL'))
+    "default" : dj_database_url.parse(env('DATABASE_URL'))
 }
 
 
