@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 import environ
 from datetime import timedelta
+import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()
@@ -23,7 +24,8 @@ ALLOWED_HOSTS = [
     'motospit.com.co',
     'www.motospit.com.co',
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    'ecommerce-primer-deploy-nuevo-repo.onrender.com'
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -99,11 +101,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
+# DATABASES = {
+#     "default": env.db("DATABASE_URL", default="postgres:///ecommerce"),
+# }
+
+# DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///ecommerce"),
+    "default" : dj_database_url.parse('postgres://ecommerce_db_zvn5_user:LYJyx9NxwMymOZJI1zdQkolwVRmrHxGK@dpg-cl4gkep828mc73csts10-a.ohio-postgres.render.com/ecommerce_db_zvn5', conn_max_age=600),
 }
 
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
