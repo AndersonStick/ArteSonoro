@@ -108,7 +108,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 DATABASES = {
-    "default" : dj_database_url.parse('postgres://ecommerce_db_zvn5_user:LYJyx9NxwMymOZJI1zdQkolwVRmrHxGK@dpg-cl4gkep828mc73csts10-a.ohio-postgres.render.com/ecommerce_db_zvn5', conn_max_age=600),
+    "default" : dj_database_url.parse(env('DATABASE_URL'))
 }
 
 
