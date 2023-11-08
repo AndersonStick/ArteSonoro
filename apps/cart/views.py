@@ -171,7 +171,7 @@ class UpdateItemView(APIView):
         try:
             if not Product.objects.filter(id=product_id).exists():
                 return Response(
-                    {'error': 'This product does not exist'},
+                    {'error': 'Este producto no existe'},
                     status=status.HTTP_404_NOT_FOUND)
             
             product = Product.objects.get(id=product_id)
