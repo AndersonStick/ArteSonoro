@@ -128,7 +128,7 @@ class GetTotalView(APIView):
                 status=status.HTTP_200_OK)
         except:
             return Response(
-                {'error': 'Something went wrong when retrieving total costs'},
+                {'error': 'Algo salió mal al recuperar el costo total'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
