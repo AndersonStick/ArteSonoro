@@ -33,4 +33,4 @@ class ListCategoriesView(APIView):
                     result.append(item)
             return Response({'categories': result}, status=status.HTTP_200_OK)
         else:
-            return Response({'error': 'No categories found'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'No se encontraron categorías'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
