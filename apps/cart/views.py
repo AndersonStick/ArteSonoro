@@ -283,7 +283,7 @@ class EmptyCartView(APIView):
 
             if not CartItem.objects.filter(cart=cart).exists():
                 return Response(
-                    {'success': 'Cart is already empty'},
+                    {'success': 'El carrito ya está vacío'},
                     status=status.HTTP_200_OK)
 
             CartItem.objects.filter(cart=cart).delete()
