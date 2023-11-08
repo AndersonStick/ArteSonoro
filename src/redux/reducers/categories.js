@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export default function Categories(state = initialState, action) {
-    const { type, payload } = action;
+    const { type, payload } =  console.log(`${process.env.REACT_APP_API_URL}/api/category/categories`);
 
     switch(type) {
         case GET_CATEGORIES_SUCCESS:
