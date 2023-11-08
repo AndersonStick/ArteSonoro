@@ -165,7 +165,7 @@ class UpdateItemView(APIView):
             count = int(data['count'])
         except:
             return Response(
-                {'error': 'Count value must be an integer'},
+                {'error': 'El valor de la cantidad debe ser un número entero'},
                 status=status.HTTP_404_NOT_FOUND)
 
         try:
