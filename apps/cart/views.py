@@ -240,7 +240,7 @@ class RemoveItemView(APIView):
 
             if not CartItem.objects.filter(cart=cart, product=product).exists():
                 return Response(
-                    {'error': 'This product is not in your cart'},
+                    {'error': 'Este producto no está en tu carrito'},
                     status=status.HTTP_404_NOT_FOUND)
             
             CartItem.objects.filter(cart=cart, product=product).delete()
