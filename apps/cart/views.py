@@ -315,7 +315,7 @@ class SynchCartView(APIView):
                     product_id = int(cart_item['product_id'])
                 except:
                     return Response(
-                        {'error': 'Product ID must be an integer'},
+                        {'error': 'El ID del producto debe ser un número entero'},
                         status=status.HTTP_404_NOT_FOUND)
 
                 if not Product.objects.filter(id=product_id).exists():
