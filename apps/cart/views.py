@@ -366,5 +366,5 @@ class SynchCartView(APIView):
                 status=status.HTTP_201_CREATED)
         except:
             return Response(
-                {'error': 'Something went wrong when synching cart'},
+                {'error': 'Algo salió mal al sincronizar el carrito'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
