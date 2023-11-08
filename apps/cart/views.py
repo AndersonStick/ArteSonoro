@@ -145,7 +145,7 @@ class GetItemTotalView(APIView):
                 status=status.HTTP_200_OK)
         except:
             return Response(
-                {'error': 'Something went wrong when getting total number of items'},
+                {'error': 'Algo salió mal al obtener el número total de artículos'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
