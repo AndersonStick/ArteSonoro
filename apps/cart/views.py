@@ -320,7 +320,7 @@ class SynchCartView(APIView):
 
                 if not Product.objects.filter(id=product_id).exists():
                     return Response(
-                        {'error': 'Product with this ID does not exist'},
+                        {'error': 'El producto con este ID no existe'},
                         status=status.HTTP_404_NOT_FOUND)
 
                 product = Product.objects.get(id=product_id)
