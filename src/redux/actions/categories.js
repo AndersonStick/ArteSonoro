@@ -5,6 +5,7 @@ import {
 } from './types';
 
 export const get_categories = () => async dispatch => {
+    console.log('INICIO GET_CATEGORIES')
     const config = {
         headers: {
             'Accept': 'application/json'
