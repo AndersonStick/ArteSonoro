@@ -121,7 +121,8 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
     'http://motospit.com.co',
-    'https://motospitsprint2.onrender.com'
+    'https://motospitsprint2.onrender.com',
+    'http://motospitsprint2.onrender.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
