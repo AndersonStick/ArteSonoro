@@ -60,7 +60,7 @@ class GetPaymentTotalView(APIView):
             for cart_item in cart_items:
                 if not Product.objects.filter(id=cart_item.product.id).exists():
                     return Response(
-                        {'error': '"Un producto con el ID proporcionado no existe'},
+                        {'error': 'Un producto con el ID proporcionado no existe'},
                         status=status.HTTP_404_NOT_FOUND
                     )
                 if int(cart_item.count) > int(cart_item.product.quantity):
@@ -134,7 +134,7 @@ class ProcessPaymentView(APIView):
         # revisar si datos de shipping son validos
         if not Shipping.objects.filter(id__iexact=shipping_id).exists():
             return Response(
-                {'error': 'Invalid shipping option'},
+                {'error': 'Opción de envío no válida'},
                 status=status.HTTP_404_NOT_FOUND
             )
         
