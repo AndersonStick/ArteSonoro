@@ -29,7 +29,7 @@ class ListOrdersView(APIView):
             )
         except:
             return Response(
-                {'error': 'Something went wrong when retrieving orders'},
+                {'error': 'Algo salió mal al recuperar las órdenes'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
