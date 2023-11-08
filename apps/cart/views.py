@@ -96,7 +96,7 @@ class AddItemView(APIView):
                     return Response({'cart': result}, status=status.HTTP_201_CREATED)
                 else:
                     return Response(
-                        {'error': 'Not enough of this item in stock'},
+                        {'error': 'No hay suficientes unidades de este artículo en el inventario'},
                         status=status.HTTP_200_OK)
         except:
             return Response(
