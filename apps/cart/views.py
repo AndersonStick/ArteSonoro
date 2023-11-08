@@ -213,7 +213,7 @@ class UpdateItemView(APIView):
                     status=status.HTTP_200_OK)
         except:
             return Response(
-                {'error': 'Something went wrong when updating cart item'},
+                {'error': 'Algo salió mal al actualizar el elemento del carrito'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
