@@ -18,10 +18,10 @@ import {
     RESET_PASSWORD_CONFIRM_SUCCESS,
     RESET_PASSWORD_CONFIRM_FAIL,
     LOGOUT
-} from './types' 
+} from './types';
 
 import { setAlert } from './alert';
-import axios from 'axios'
+import axios from 'axios';
 
 export const check_authenticated = () => async dispatch => {
     if(localStorage.getItem('access')){
