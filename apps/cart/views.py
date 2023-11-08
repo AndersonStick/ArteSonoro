@@ -292,7 +292,7 @@ class EmptyCartView(APIView):
             Cart.objects.filter(user=user).update(total_items=0)
 
             return Response(
-                {'success': 'Cart emptied successfully'},
+                {'success': 'El carrito se ha vaciado exitosamente'},
                 status=status.HTTP_200_OK)
         except:
             return Response(
@@ -362,7 +362,7 @@ class SynchCartView(APIView):
                             )
 
                 return Response(
-                {'success': 'Cart Synchronized'},
+                {'success': 'Carrito sincronizado'},
                 status=status.HTTP_201_CREATED)
         except:
             return Response(
