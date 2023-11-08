@@ -32,7 +32,7 @@ class GetItemsView(APIView):
             return Response({'cart': result}, status=status.HTTP_200_OK)
         except:
             return Response(
-                {'error': 'Something went wrong when retrieving cart items'},
+                {'error': 'Algo salió mal al recuperar los elementos del carrito'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
