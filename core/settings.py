@@ -121,6 +121,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
     'http://motospit.com.co',
+    'https://motospitsprint2.onrender.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -230,18 +231,16 @@ BT_PRIVATE_KEY = os.environ.get('BT_PRIVATE_KEY')
 
 AUTH_USER_MODEL='user.UserAccount'
 
-EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
-
+#EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Motospit - Almacen de repuestos de motos <motospitecommerce@gmail.com>'
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 
 if not DEBUG:
-    DEFAULT_FROM_EMAIL = 'Motospit - Almacen de repuestos de motos <motospitecommerce@gmail.com>'
-    EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = env('EMAIL_HOST')
-    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-    EMAIL_PORT = env('EMAIL_PORT')
-    EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
