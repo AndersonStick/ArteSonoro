@@ -32,7 +32,7 @@ class GenerateTokenView(APIView):
             )
         except:
             return Response(
-                {'error': 'Something went wrong when retrieving braintree token'},
+                {'error': 'Algo salió mal al recuperar el token de Braintree'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
         
@@ -51,7 +51,7 @@ class GetPaymentTotalView(APIView):
             #revisar si existen items
             if not CartItem.objects.filter(cart=cart).exists():
                 return Response(
-                    {'error': 'Need to have items in cart'},
+                    {'error': 'Es necesario tener productos en el carrito'},
                     status=status.HTTP_404_NOT_FOUND
                 )
             
@@ -60,12 +60,12 @@ class GetPaymentTotalView(APIView):
             for cart_item in cart_items:
                 if not Product.objects.filter(id=cart_item.product.id).exists():
                     return Response(
-                        {'error': 'A proudct with ID provided does not exist'},
+                        {'error': '"Un producto con el ID proporcionado no existe'},
                         status=status.HTTP_404_NOT_FOUND
                     )
                 if int(cart_item.count) > int(cart_item.product.quantity):
                     return Response(
-                        {'error': 'Not enough items in stock'},
+                        {'error': 'No hay suficientes productos en stock'},
                         status=status.HTTP_200_OK
                     )
                 
@@ -109,7 +109,7 @@ class GetPaymentTotalView(APIView):
 
         except:
             return Response(
-                {'error': 'Something went wrong when retrieving payment total information'},
+                {'error': 'Algo salió mal al recuperar la información del total del pago'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
@@ -143,7 +143,7 @@ class ProcessPaymentView(APIView):
         #revisar si usuario tiene items en carrito
         if not CartItem.objects.filter(cart=cart).exists():
             return Response(
-                {'error': 'Need to have items in cart'},
+                {'error': 'Es necesario tener elementos en el carrito'},
                 status=status.HTTP_404_NOT_FOUND
             )
         
@@ -153,12 +153,12 @@ class ProcessPaymentView(APIView):
         for cart_item in cart_items:
             if not Product.objects.filter(id=cart_item.product.id).exists():
                 return Response(
-                    {'error': 'Transaction failed, a proudct ID does not exist'},
+                    {'error': 'Transacción fallida, un ID de producto no existe'},
                     status=status.HTTP_404_NOT_FOUND
                 )
             if int(cart_item.count) > int(cart_item.product.quantity):
                 return Response(
-                    {'error': 'Not enough items in stock'},
+                    {'error': 'No hay suficientes artículos en stock'},
                     status=status.HTTP_200_OK
                 )
         
@@ -194,7 +194,7 @@ class ProcessPaymentView(APIView):
             )
         except:
             return Response(
-                {'error': 'Error processing the transaction'},
+                {'error': 'Error al procesar la transacción'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
         
@@ -233,7 +233,7 @@ class ProcessPaymentView(APIView):
                 )
             except:
                 return Response(
-                    {'error': 'Transaction succeeded but failed to create the order'},
+                    {'error': 'La transacción tuvo éxito, pero no se pudo crear la orden'},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR
                 )
             
@@ -251,17 +251,17 @@ class ProcessPaymentView(APIView):
                     )
                 except:
                     return Response(
-                        {'error': 'Transaction succeeded and order created, but failed to create an order item'},
+                        {'error': 'La transacción se realizó con éxito y se creó la orden, pero no se pudo crear un elemento de orden'},
                         status=status.HTTP_500_INTERNAL_SERVER_ERROR
                     )
 
             try:
                 send_mail(
                     'Detalles de tu compra',
-                    'Ey ' + full_name + ','
+                    'Ey Motero/a' + full_name + ','
                     + '\n\nHemos recibido tu orden!'
                     + '\n\nDanos un poco de tiempo para procesarla y hacer el envio.'
-                    + '\n\nPuedes ir a tu perfil para revisar el estado tu orden.'
+                    + '\n\nPodrás ir a tu perfil para revisar el estado tu orden.'
                     + '\n\nDe motor gracias UwU,'
                     + '\nHora de comprar',
                     'motospitecommerce@gmail.com',
@@ -270,7 +270,7 @@ class ProcessPaymentView(APIView):
                 )
             except:
                 return Response(
-                    {'error': 'Transaction succeeded and order created, but failed to send email'},
+                    {'error': 'La transacción se realizó con éxito y se creó la orden, pero no se pudo enviar el correo electrónico'},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR
                 )
 
@@ -282,16 +282,16 @@ class ProcessPaymentView(APIView):
                 Cart.objects.filter(user=user).update(total_items=0)
             except:
                 return Response(
-                    {'error': 'Transaction succeeded and order successful, but failed to clear cart'},
+                    {'error': 'La transacción tuvo éxito y se creó la orden, pero no se pudo vaciar el carrito'},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR
                 )
             
             return Response(
-                {'success': 'Transaction successful and order was created'},
+                {'success': 'Transacción exitosa y se creó la orden'},
                 status=status.HTTP_200_OK
             )
         else:
             return Response(
-                {'error': 'Transaction failed'},
+                {'error': 'Transacción fallida'},
                 status=status.HTTP_400_BAD_REQUEST
             )
