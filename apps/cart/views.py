@@ -270,7 +270,7 @@ class RemoveItemView(APIView):
             return Response({'cart': result}, status=status.HTTP_200_OK)
         except:
             return Response(
-                {'error': 'Something went wrong when removing item'},
+                {'error': 'Algo salió mal al eliminar el artículo'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
