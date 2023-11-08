@@ -75,7 +75,7 @@ class ListOrderDetailView(APIView):
                 )
             else:
                 return Response(
-                    {'error': 'Order with this transaction ID does not exist'},
+                    {'error': 'La orden con este ID de transacción no existe'},
                     status=status.HTTP_404_NOT_FOUND
                 )
         except:
