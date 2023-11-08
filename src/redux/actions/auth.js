@@ -104,7 +104,7 @@ export const signup = (first_name, last_name, email, password, re_password) => a
         dispatch({
             type: REMOVE_AUTH_LOADING
         });
-        dispatch(setAlert('Error conectando con el servidor, intenta mas tarde.', 'bg-red-100'));
+        dispatch(setAlert('Contraseña poco compleja, intenta de nuevo.', 'bg-red-100'));
     }
 };
 
