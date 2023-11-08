@@ -80,6 +80,6 @@ class ListOrderDetailView(APIView):
                 )
         except:
             return Response(
-                {'error': 'Something went wrong when retrieving order detail'},
+                {'error': 'Algo salió mal al recuperar los detalles de la orden'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
