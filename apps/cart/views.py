@@ -100,7 +100,7 @@ class AddItemView(APIView):
                         status=status.HTTP_200_OK)
         except:
             return Response(
-                {'error': 'Something went wrong when adding item to cart'},
+                {'error': 'Algo salió mal al agregar el artículo al carrito'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
