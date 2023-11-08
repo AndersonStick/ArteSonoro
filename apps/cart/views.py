@@ -296,7 +296,7 @@ class EmptyCartView(APIView):
                 status=status.HTTP_200_OK)
         except:
             return Response(
-                {'error': 'Something went wrong emptying cart'},
+                {'error': 'Algo salió mal al vaciar el carrito'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
