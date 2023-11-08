@@ -17,7 +17,7 @@ class ProductDetailView(APIView):
             product_id=int(productId)
         except:
             return Response(
-                {'error': 'Product ID must be an integer'},
+                {'error': 'El ID del producto debe ser un número entero'},
                 status=status.HTTP_404_NOT_FOUND)
         
         if Product.objects.filter(id=product_id).exists():
@@ -28,7 +28,7 @@ class ProductDetailView(APIView):
             return Response({'product': product.data}, status=status.HTTP_200_OK)
         else:
             return Response(
-                {'error': 'Product with this ID does not exist'},
+                {'error': 'El producto con este ID no existe'},
                 status=status.HTTP_404_NOT_FOUND)
 
 class ListProductsView(APIView):
@@ -50,7 +50,7 @@ class ListProductsView(APIView):
             limit = int(limit)
         except:
             return Response(
-                {'error': 'Limit must be an integer'},
+                {'error': 'El límite debe ser un número entero'},
                 status=status.HTTP_404_NOT_FOUND)
         
         if limit <= 0:
@@ -71,7 +71,7 @@ class ListProductsView(APIView):
             return Response({'products': products.data}, status=status.HTTP_200_OK)
         else:
             return Response(
-                {'error': 'No products to list'},
+                {'error': 'No hay productos para mostrar'},
                 status=status.HTTP_404_NOT_FOUND)
 
 
@@ -85,7 +85,7 @@ class ListSearchView(APIView):
             category_id = int(data['category_id'])
         except:
             return Response(
-                {'error': 'Category ID must be an integer'},
+                {'error': 'El ID de la categoría debe ser un número entero'},
                 status=status.HTTP_404_NOT_FOUND)
 
         search = data['search']
@@ -110,7 +110,7 @@ class ListSearchView(APIView):
         # revisar si existe categoria
         if not Category.objects.filter(id=category_id).exists():
             return Response(
-                {'error': 'Category not found'},
+                {'error': 'Categoría no encontrada'},
                 status=status.HTTP_404_NOT_FOUND)
 
         category = Category.objects.get(id=category_id)
@@ -154,13 +154,13 @@ class ListRelatedView(APIView):
             product_id = int(productId)
         except:
             return Response(
-                {'error': 'Product ID must be an integer'},
+                {'error': 'El ID del producto debe ser un número entero'},
                 status=status.HTTP_404_NOT_FOUND)
         
         # Existe product id
         if not Product.objects.filter(id=product_id).exists():
             return Response(
-                {'error': 'Product with this product ID does not exist'},
+                {'error': 'El producto con este ID de producto no existe'},
                 status=status.HTTP_404_NOT_FOUND)
             
         category = Product.objects.get(id=product_id).category
@@ -203,12 +203,12 @@ class ListRelatedView(APIView):
                     status=status.HTTP_200_OK)
             else:
                 return Response(
-                    {'error': 'No related products found'},
+                    {'error': 'No se encontraron productos relacionados'},
                     status=status.HTTP_200_OK)
 
         else:
             return Response(
-                {'error': 'No related products found'},
+                {'error': 'No se encontraron productos relacionados'},
                 status=status.HTTP_200_OK)
 
 
@@ -222,7 +222,7 @@ class ListBySearchView(APIView):
             category_id = int(data['category_id'])
         except:
             return Response(
-                {'error': 'Category ID must be an integer'},
+                {'error': 'El ID de la categoría debe ser un número entero'},
                 status=status.HTTP_404_NOT_FOUND)
         
         price_range = data['price_range']
@@ -238,7 +238,7 @@ class ListBySearchView(APIView):
             product_results = Product.objects.all()
         elif not Category.objects.filter(id=category_id).exists():
             return Response(
-                {'error': 'This category does not exist'},
+                {'error': 'Esta categoría no existe'},
                 status=status.HTTP_404_NOT_FOUND)
         else:
             category = Category.objects.get(id=category_id)
@@ -292,5 +292,5 @@ class ListBySearchView(APIView):
                 status=status.HTTP_200_OK)
         else:
             return Response(
-                {'error': 'No products found'},
+                {'error': 'No se encontraron productos'},
                 status=status.HTTP_200_OK)
