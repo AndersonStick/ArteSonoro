@@ -13,7 +13,7 @@ export const get_categories = () => async dispatch => {
     };
 
     try {
-        const res = await axios.get(`https://ecommerce-primer-deploy-nuevo-repo.onrender.com/api/category/categories`, config);
+        const res = await axios.get(`ecommerce-primer-deploy-nuevo-repo.onrender.com/api/category/categories`, config);
     
         if (res.status === 200) {
             dispatch({
