@@ -19,6 +19,6 @@ class GetShippingView(APIView):
             )
         else:
             return Response(
-                {'error': 'No shipping options available'},
+                {'error': 'No hay opciones de envío disponibles'},
                 status=status.HTTP_404_NOT_FOUND
             )
