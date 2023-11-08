@@ -347,7 +347,7 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
         dispatch({
             type: REMOVE_AUTH_LOADING
         });
-        dispatch(setAlert('Passwords do not match', 'bg-red-100'));
+        dispatch(setAlert('Las contraseñas no coinciden', 'bg-red-100'));
     } else {
         try {
             const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/users/reset_password_confirm/`, body, config);
@@ -359,7 +359,7 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
                 dispatch({
                     type: REMOVE_AUTH_LOADING
                 });
-                dispatch(setAlert('Password has been reset successfully', 'bg-green-100'));
+                dispatch(setAlert('La contraseña se ha restablecido correctamente', 'bg-green-100'));
             } else {
                 dispatch({
                     type: RESET_PASSWORD_CONFIRM_FAIL
