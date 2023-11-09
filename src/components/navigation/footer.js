@@ -1,27 +1,23 @@
 const navigation = {
-  solutions: [
+  soluciones: [
     { name: 'Marketing', href: '#' },
-    { name: 'Analytics', href: '#' },
-    { name: 'Commerce', href: '#' },
-    { name: 'Insights', href: '#' },
+    { name: 'Análisis', href: '#' },
+    { name: 'Comercio', href: '#' },
   ],
-  support: [
-    { name: 'Pricing', href: '#' },
-    { name: 'Documentation', href: '#' },
-    { name: 'Guides', href: '#' },
-    { name: 'API Status', href: '#' },
+  soporte: [
+    { name: 'Precios', href: '#' },
+    { name: 'Documentación', href: '#' },
+    { name: 'Guías', href: '#' },
   ],
-  company: [
-    { name: 'About', href: '#' },
+  empresa: [
+    { name: 'Acerca de', href: '#' },
     { name: 'Blog', href: '#' },
-    { name: 'Jobs', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Partners', href: '#' },
+    { name: 'Empleos', href: '#' },
   ],
   legal: [
-    { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: 'Reclamaciones', href: '#' },
+    { name: 'Privacidad', href: '#' },
+    { name: 'Términos', href: '#' },
   ],
   social: [
     {
@@ -64,9 +60,9 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Solutions</h3>
+                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Soluciones</h3>
                 <ul className="mt-4 space-y-4">
-                  {navigation.solutions.map((item) => (
+                  {navigation.soluciones.map((item) => (
                     <li key={item.name}>
                       <a href={item.href} className="text-base text-white hover:text-white">
                         {item.name}
@@ -76,9 +72,9 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Support</h3>
+                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Soporte</h3>
                 <ul className="mt-4 space-y-4">
-                  {navigation.support.map((item) => (
+                  {navigation.soporte.map((item) => (
                     <li key={item.name}>
                       <a href={item.href} className="text-base text-white hover:text-white">
                         {item.name}
@@ -90,9 +86,9 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Company</h3>
+                <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Empresa</h3>
                 <ul className="mt-4 space-y-4">
-                  {navigation.company.map((item) => (
+                  {navigation.empresa.map((item) => (
                     <li key={item.name}>
                       <a href={item.href} className="text-base text-white hover:text-white">
                         {item.name}
