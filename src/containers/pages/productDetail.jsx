@@ -61,7 +61,7 @@ const ProductDetail =({
             <div className="bg-white">
             <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
               <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
-                <ImageGallery photo={product && product.photo}/>
+                <ImageGallery photo={product && `https://raw.githubusercontent.com/AndersonStick/ecommerce/main${product.photo}`}/>
                 {/* Product info */}
                 <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
                   <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">{product && product.name}</h1>
