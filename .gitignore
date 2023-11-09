@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+#.env de core
+/core/.env
+
 # production
 
 # misc

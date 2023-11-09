@@ -53,7 +53,7 @@ const CartItem = ({
         <li className="flex py-6 sm:py-10">
             <div className="flex-shrink-0">
             <img
-                src={item.product.photo}
+                src={`https://raw.githubusercontent.com/AndersonStick/ecommerce/main${item.product.photo}`}
                 alt="Foto del producto"
                 className="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48"
             />
