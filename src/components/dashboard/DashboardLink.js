@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import {
     CalendarIcon
-  } from '@heroicons/react/outline'
+  } from '@heroicons/react/outline';
   import { CreditCardIcon, UserIcon } from '@heroicons/react/solid';
+
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
+
 const DashboardLink =()=>{
     return(
         <>
