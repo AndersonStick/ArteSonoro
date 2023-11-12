@@ -51,6 +51,50 @@ const DashboardPayments =({
     if(!isAuthenticated)
         return <Navigate to="/"/>
 
+    // Helper function to calculate the width of the progress bar based on order status
+    const calculateProgressBarWidth = (status) => {
+      switch (status) {
+        case 'not_processed':
+          return '25%'; // Adjust the width based on your preference
+        case 'processed':
+          return '50%';
+        case 'shipped':
+          return '75%';
+        case 'delivered':
+          return '100%';
+        default:
+          return '0%';
+      }
+    };
+
+    // Helper function to conditionally apply styles to each step based on order status
+    const getStepClassName = (step, orderStatus) => {
+      const isCompleted = step <= getOrderStatusIndex(orderStatus);
+      return classNames(isCompleted ? 'text-custom-blue' : '', `text-${getStepAlignment(step)}`);
+    };
+
+    // Helper function to get the alignment for each step
+    const getStepAlignment = (step) => {
+      switch (step) {
+        case 0:
+          return '';
+        case 1:
+          return 'center';
+        case 2:
+          return 'center';
+        case 3:
+          return 'right';
+        default:
+          return '';
+      }
+    };
+
+    // Helper function to get the index of the order status for comparison
+    const getOrderStatusIndex = (status) => {
+      const statusOrder = ['Orden realizada', 'Procesando', 'Enviada', 'Entregada'];
+      return statusOrder.indexOf(status);
+    };
+
     return (
         <>
             <div>
@@ -100,9 +144,9 @@ const DashboardPayments =({
                 <div className="flex-shrink-0 flex items-center px-4">
                     <Link to="/">
                   <img
-                    className="h-8 w-auto cursor-pointer"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                    alt="Workflow"
+                    className="h-16 w-auto cursor-pointer"
+                    src="https://scontent.fbog2-5.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yjNRVC5phxMAX9REqjv&_nc_ht=scontent.fbog2-5.fna&oh=00_AfC77Jdbpu0c-NGuwVjEYHOIy-Sd_Yk18qYjGKd3w-zkNA&oe=65553595"
+                    alt="Logo Motospit"
                   />
                   </Link>
                 </div>
@@ -133,9 +177,9 @@ const DashboardPayments =({
             </Link>
             
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                alt="Workflow"
+                className="h-16 w-auto"
+                src="https://scontent.fbog2-5.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yjNRVC5phxMAX9REqjv&_nc_ht=scontent.fbog2-5.fna&oh=00_AfC77Jdbpu0c-NGuwVjEYHOIy-Sd_Yk18qYjGKd3w-zkNA&oe=65553595"
+                alt="Lodo Motospit"
               />
               
             </div>
@@ -305,20 +349,14 @@ const DashboardPayments =({
                     <div className="bg-gray-200 rounded-full overflow-hidden">
                       <div
                         className="h-2 bg-custom-blue rounded-full"
-                        style={{ width: `calc((${product.step} * 2 + 1) / 8 * 100%)` }}
+                        style={{ width: calculateProgressBarWidth(product.status) }}
                       />
                     </div>
                     <div className="hidden sm:grid grid-cols-4 font-medium text-gray-600 mt-6">
-                      <div className="text-custom-blue">Orden realizada</div>
-                      <div className={classNames(product.step > 0 ? 'text-custom-blue' : '', 'text-center')}>
-                        Procesando
-                      </div>
-                      <div className={classNames(product.step > 1 ? 'text-custom-blue' : '', 'text-center')}>
-                        Enviada
-                      </div>
-                      <div className={classNames(product.step > 2 ? 'text-custom-blue' : '', 'text-right')}>
-                        Entregada
-                      </div>
+                      <div className={getStepClassName(0, product.status)}>Orden realizada</div>
+                      <div className={getStepClassName(1, product.status)}>Procesando</div>
+                      <div className={getStepClassName(2, product.status)}>Enviada</div>
+                      <div className={getStepClassName(3, product.status)}>Entregada</div>
                     </div>
                   </div>
                 </div>

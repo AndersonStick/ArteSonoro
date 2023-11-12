@@ -1,5 +1,4 @@
-import Layout from '../../hocs/Layout'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import {list_orders} from '../../redux/actions/orders'
 import { useParams } from 'react-router';
 import {
@@ -11,49 +10,23 @@ import { get_order_detail } from '../../redux/actions/orders';
 import { useEffect } from 'react';
 import { Navigate } from 'react-router';
 import DashboardLink from '../../components/dashboard/DashboardLink';
-import { Fragment, useState } from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react';
+import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   BellIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  FolderIcon,
-  HomeIcon,
-  InboxIcon,
   MenuAlt2Icon,
-  UsersIcon,
   XIcon,
-  PaperClipIcon
-} from '@heroicons/react/outline'
-import { SearchIcon } from '@heroicons/react/solid'
+} from '@heroicons/react/outline';
+import { SearchIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
-import moment from 'moment'
 
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Tu perfil', href: '#' },
+  { name: 'Configuración', href: '#' },
+  { name: 'Cerrar Sesión', href: '#' },
 ]
 
-const products = [
-  {
-    id: 1,
-    name: 'Distant Mountains Artwork Tee',
-    price: '$36.00',
-    description: 'You awake in a new, mysterious land. Mist hangs low along the distant mountains. What does it mean?',
-    address: ['Floyd Miles', '7363 Cynthia Pass', 'Toronto, ON N3Y 4H8'],
-    email: 'f•••@example.com',
-    phone: '1•••••••••40',
-    href: '#',
-    status: 'Processing',
-    step: 1,
-    date: 'March 24, 2021',
-    datetime: '2021-03-24',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/confirmation-page-04-product-01.jpg',
-    imageAlt: 'Off-white t-shirt with circular dot illustration on the front of mountain ridges that fade.',
-  },
-  // More products...
-]
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -81,6 +54,59 @@ const DashboardPaymentDetail =({
 
     if(!isAuthenticated)
         return <Navigate to="/"/>
+
+    // Asegurarse de que 'order' esté definido antes de acceder a sus propiedades
+    if (!order) {
+      return (
+        <div>
+          <p>Cargando...</p>
+        </div>
+      );
+    }
+
+    // Helper function to calculate the width of the progress bar based on order status
+    const calculateProgressBarWidth = (status) => {
+      switch (status) {
+        case 'not_processed':
+          return '25%'; // Adjust the width based on your preference
+        case 'processed':
+          return '50%';
+        case 'shipped':
+          return '75%';
+        case 'delivered':
+          return '100%';
+        default:
+          return '0%';
+      }
+    };
+
+    // Helper function to conditionally apply styles to each step based on order status
+    const getStepClassName = (step, orderStatus) => {
+      const isCompleted = step <= getOrderStatusIndex(orderStatus);
+      return classNames(isCompleted ? 'text-custom-blue' : '', `text-${getStepAlignment(step)}`);
+    };
+
+    // Helper function to get the alignment for each step
+    const getStepAlignment = (step) => {
+      switch (step) {
+        case 0:
+          return '';
+        case 1:
+          return 'center';
+        case 2:
+          return 'center';
+        case 3:
+          return 'right';
+        default:
+          return '';
+      }
+    };
+
+    // Helper function to get the index of the order status for comparison
+    const getOrderStatusIndex = (status) => {
+      const statusOrder = ['Orden realizada', 'Procesando', 'Enviada', 'Entregada'];
+      return statusOrder.indexOf(status);
+    };
 
     return (
         <>
@@ -131,9 +157,9 @@ const DashboardPaymentDetail =({
                 <div className="flex-shrink-0 flex items-center px-4">
                     <Link to="/">
                   <img
-                    className="h-8 w-auto cursor-pointer"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                    alt="Workflow"
+                    className="h-16 w-auto cursor-pointer"
+                    src="https://scontent.fbog2-5.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yjNRVC5phxMAX9REqjv&_nc_ht=scontent.fbog2-5.fna&oh=00_AfC77Jdbpu0c-NGuwVjEYHOIy-Sd_Yk18qYjGKd3w-zkNA&oe=65553595"
+                    alt="Logo Motospit"
                   />
                   </Link>
                 </div>
@@ -164,9 +190,9 @@ const DashboardPaymentDetail =({
             </Link>
             
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                alt="Workflow"
+                className="h-16 w-auto"
+                src="https://scontent.fbog2-5.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yjNRVC5phxMAX9REqjv&_nc_ht=scontent.fbog2-5.fna&oh=00_AfC77Jdbpu0c-NGuwVjEYHOIy-Sd_Yk18qYjGKd3w-zkNA&oe=65553595"
+                alt="Logo Motospit"
               />
               
             </div>
@@ -200,7 +226,7 @@ const DashboardPaymentDetail =({
                     <input
                       id="search-field"
                       className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
-                      placeholder="Search"
+                      placeholder="Buscar"
                       type="search"
                       name="search"
                     />
@@ -270,26 +296,26 @@ const DashboardPaymentDetail =({
       <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
       <div className="bg-white">
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Order Details</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Detalle de la orden</h1>
 
         <div className="text-sm border-b border-gray-200 mt-2 pb-5 sm:flex sm:justify-between">
           <dl className="flex">
-            <dt className="text-gray-500">Transaction ID: &nbsp;</dt>
+            <dt className="text-gray-500">ID de transacción: &nbsp;</dt>
             <dd className="font-medium text-gray-900">{order.transaction_id}</dd>
             <dt>
-              <span className="sr-only">Date</span>
+              <span className="sr-only">Fecha</span>
               <span className="text-gray-400 mx-2" aria-hidden="true">
                 &middot;
               </span>
             </dt>
             <dd className="font-medium text-gray-900">
-              <time dateTime="2021-03-22">March 22, 2021</time>
+              <time dateTime="2021-03-22">{order.date_issued}</time>
             </dd>
           </dl>
         </div>
 
         <div className="mt-8">
-          <h2 className="sr-only">Products purchased</h2>
+          <h2 className="sr-only">Productos comprados</h2>
 
           <div className="space-y-24">
             {order.order_items.map((product) => (
@@ -303,48 +329,41 @@ const DashboardPaymentDetail =({
                 <h3 className="text-lg font-medium text-gray-900">
                   <Link to={`/product/${product.id}`}>{product.name}</Link>
                 </h3>
-                <p className="font-medium text-gray-900 mt-1">Transaction ID: {product.transaction_id}</p>
+                <p className="font-medium text-gray-900 mt-1">ID de transacción: {order.transaction_id}</p>
                 <p className="text-gray-500 mt-3">{product.description}</p>
               </div>
               <div className="sm:col-span-12 md:col-span-7">
                 <dl className="grid grid-cols-1 gap-y-8 border-b py-8 border-gray-200 sm:grid-cols-2 sm:gap-x-6 sm:py-6 md:py-10">
                   <div>
-                    <dt className="font-medium text-gray-900">Delivery address</dt>
+                    <dt className="font-medium text-gray-900">Dirección de envio</dt>
                     <dd className="mt-3 text-gray-500">
-                      <span className="block">{product.address_line_1}</span>
-                      <span className="block">{product.address_line_2}</span>
+                      <span className="block">{order.address_line_1}</span>
                     </dd>
                   </div>
                   <div>
-                    <dt className="font-medium text-gray-900">Shipping</dt>
+                    <dt className="font-medium text-gray-900">Envio</dt>
                     <dd className="mt-3 text-gray-500 space-y-3">
-                      <p>$ {product.shipping_price}</p>
-                      <p>$ {product.amount} Total Cost</p>
+                      <p>$ {order.shipping_price}</p>
+                      <p>$ {order.amount} Costo Total</p>
                       
                     </dd>
                   </div>
                 </dl>
                 <p className="font-medium text-gray-900 mt-6 md:mt-10">
-                  Status: {product.status}
+                  Estado: {order.status}
                 </p>
                 <div className="mt-6">
                   <div className="bg-gray-200 rounded-full overflow-hidden">
                     <div
-                      className="h-2 bg-indigo-600 rounded-full"
-                      style={{ width: `calc((${product.step} * 2 + 1) / 8 * 100%)` }}
+                      className="h-2 bg-custom-blue rounded-full"
+                      style={{ width: calculateProgressBarWidth(order.status) }}
                     />
                   </div>
                   <div className="hidden sm:grid grid-cols-4 font-medium text-gray-600 mt-6">
-                    <div className="text-indigo-600">Order placed</div>
-                    <div className={classNames(product.step > 0 ? 'text-indigo-600' : '', 'text-center')}>
-                      Processing
-                    </div>
-                    <div className={classNames(product.step > 1 ? 'text-indigo-600' : '', 'text-center')}>
-                      Shipped
-                    </div>
-                    <div className={classNames(product.step > 2 ? 'text-indigo-600' : '', 'text-right')}>
-                      Delivered
-                    </div>
+                    <div className={getStepClassName(0, order.status)}>Orden realizada</div>
+                    <div className={getStepClassName(1, order.status)}>Procesando</div>
+                    <div className={getStepClassName(2, order.status)}>Enviada</div>
+                    <div className={getStepClassName(3, order.status)}>Entregada</div>
                   </div>
                 </div>
               </div>
@@ -373,6 +392,8 @@ const DashboardPaymentDetail =({
       </div>
         </>
     )
+
+
 }
 
 const mapStateToProps =state=>({

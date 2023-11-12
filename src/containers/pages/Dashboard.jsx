@@ -241,21 +241,19 @@ const Dashboard = ({
             <h3 className="text-lg leading-6 font-medium text-gray-900"></h3>
             <p className="mt-1 max-w-2xl text-sm text-gray-500">Detalles personales y solicitud</p>
           </div>
-          <div className="mt-5 border-t border-gray-200">
-            <dl className="divide-y divide-gray-200">
-              <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                <dt className="text-sm font-medium text-gray-500">Nombre completo</dt>
-                <dd className="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  <span className="flex-grow">{user.first_name} {user.last_name}</span>
-                </dd>
-              </div>
-              <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                <dt className="text-sm font-medium text-gray-500">Dirección de correo electrónico</dt>
-                <dd className="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  <span className="flex-grow">{user.email}</span>
-                </dd>
-              </div>
-            </dl>
+          <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+            <dt className="text-sm font-medium text-gray-500">Nombre completo</dt>
+            <dd className="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <span className="flex-grow">
+                {user && user.first_name && user.last_name ? `${user.first_name} ${user.last_name}` : 'N/A'}
+              </span>
+            </dd>
+          </div>
+          <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+            <dt className="text-sm font-medium text-gray-500">Dirección de correo electrónico</dt>
+            <dd className="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <span className="flex-grow">{user && user.email ? user.email : 'N/A'}</span>
+            </dd>
           </div>
                 </div>
                 </div>
