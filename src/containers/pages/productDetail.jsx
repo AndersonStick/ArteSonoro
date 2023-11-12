@@ -3,6 +3,12 @@ import Layout from "../../hocs/Layout";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { 
+  add_wishlist_item, 
+  get_wishlist_items, 
+  get_wishlist_item_total ,
+  remove_wishlist_item
+} from '../../redux/actions/wishlist';
+import { 
     get_product,
     get_related_products
 } from "../../redux/actions/products";
@@ -18,6 +24,7 @@ import { useEffect, useState } from "react";
 import { HeartIcon } from '@heroicons/react/outline';
 import ImageGallery from "../../components/product/ImageGallery";
 import { Circles } from  'react-loader-spinner';
+import { Navigate } from "react-router-dom";
 
 
 const ProductDetail =({
@@ -27,7 +34,13 @@ const ProductDetail =({
     get_items,
     add_item,
     get_total,
-    get_item_total
+    get_item_total,
+    add_wishlist_item, 
+    get_wishlist_items, 
+    get_wishlist_item_total,
+    isAuthenticated,
+    remove_wishlist_item,
+    wishlist,
 })=>{
 
   const [loading, setLoading] = useState(false);
@@ -45,6 +58,43 @@ const ProductDetail =({
         navigate('/cart')
     }
   }
+
+  const addToWishlist = async () => {
+    if (isAuthenticated) {
+      let isPresent = false;
+      if(
+        wishlist &&
+        wishlist !== null &&
+        wishlist !== undefined &&
+        product &&
+        product !== null &&
+        product !== undefined
+        ){
+          wishlist.map(item => {
+              if (item.product.id.toString() === product.id.toString()) {
+                  isPresent = true;
+              }
+          });
+      }
+      
+      if (isPresent) {
+        await remove_wishlist_item(product.id);
+        await get_wishlist_items();
+        await get_wishlist_item_total();
+      } else {
+        await remove_wishlist_item(product.id);
+          await add_wishlist_item(product.id);
+          await get_wishlist_items();
+          await get_wishlist_item_total();
+          await get_items();
+          await get_total();
+          await get_item_total();
+      }
+        
+    } else {
+      return <Navigate to="/cart"/>
+    }
+  };
   
     const params = useParams()
     const productId = params.productId
@@ -53,6 +103,8 @@ const ProductDetail =({
         window.scrollTo(0,0)
         get_product(productId)
         get_related_products(productId)
+        get_wishlist_items()
+        get_wishlist_item_total()
     }, [])
     
 
@@ -121,7 +173,7 @@ const ProductDetail =({
                       </button>
                       }
                       <button
-                        type="button"
+                        onClick={addToWishlist}
                         className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
                       >
                         <HeartIcon className="h-6 w-6 flex-shrink-0" aria-hidden="true" />
@@ -138,7 +190,9 @@ const ProductDetail =({
 }
 
 const mapStateToProps = state => ({
-    product: state.Products.product
+    product: state.Products.product,
+    isAuthenticated: state.Auth.isAuthenticated,
+    wishlist: state.Wishlist.wishlist,
 })
 
 export default connect(mapStateToProps,{
@@ -147,5 +201,9 @@ export default connect(mapStateToProps,{
     get_items,
     add_item,
     get_total,
-    get_item_total
+    get_item_total,
+    add_wishlist_item, 
+    get_wishlist_items, 
+    get_wishlist_item_total,
+    remove_wishlist_item,
 }) (ProductDetail)

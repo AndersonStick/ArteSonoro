@@ -23,7 +23,7 @@ class UserAccountManager(BaseUserManager):
         profile = UserProfile.objects.create(user=user)
         profile.save()
 
-        wishlist = Wishlist.objects.create(user=user)
+        wishlist = WishList.objects.create(user=user)
         wishlist.save()
 
         return user
