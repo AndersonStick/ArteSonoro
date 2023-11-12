@@ -1,17 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import {
-    BellIcon,
-    CalendarIcon,
-    ChartBarIcon,
-    FolderIcon,
-    HomeIcon,
-    InboxIcon,
-    MenuAlt2Icon,
-    UsersIcon,
-    XIcon,
-    PaperClipIcon
+    CalendarIcon
   } from '@heroicons/react/outline'
-  import { CreditCardIcon, SearchIcon, UserIcon } from '@heroicons/react/solid'
+  import { CreditCardIcon, UserIcon } from '@heroicons/react/solid';
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -31,7 +22,7 @@ const DashboardLink =()=>{
                 )}
                 aria-hidden="true"
             />
-            Dashboard
+            Panel de control
             </Link>
             
             <Link
@@ -46,7 +37,7 @@ const DashboardLink =()=>{
                 )}
                 aria-hidden="true"
             />
-            Payment History
+            Historial de pagos
             </Link>
             
             <Link
@@ -61,7 +52,7 @@ const DashboardLink =()=>{
                 )}
                 aria-hidden="true"
             />
-            Profile
+            Perfil
             </Link>
         </>
     )

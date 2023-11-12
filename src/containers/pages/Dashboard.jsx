@@ -8,7 +8,7 @@ import {
 } from "../../redux/actions/cart";
 import { useEffect } from 'react';
 import { Navigate } from 'react-router';
-// import DashboardLink from '../../components/dashboard/DashboardLink';
+import DashboardLink from '../../components/dashboard/DashboardLink';
 import { Fragment, useState } from 'react';
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
@@ -109,7 +109,7 @@ const Dashboard = ({
                     </div>
                     <div className="mt-5 flex-1 h-0 overflow-y-auto">
                       <nav className="px-2 space-y-1">
-                      <div/> 
+                      <DashboardLink/> 
                       {/* cambiar div */}
                       </nav>
                     </div>
@@ -143,7 +143,7 @@ const Dashboard = ({
                 </div>
                 <div className="mt-5 flex-grow flex flex-col">
                   <nav className="flex-1 px-2 pb-4 space-y-1">
-                    <div/>
+                    <DashboardLink/>
                     {/* cambiar div */}
                   </nav>
                 </div>
