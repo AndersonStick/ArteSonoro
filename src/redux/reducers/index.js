@@ -7,6 +7,7 @@ import Cart from './cart';
 import Shipping from './shipping';
 import Payment from './payment';
 import Orders from './orders';
+import Profile from './profile';
 
 
 export default combineReducers({
@@ -17,5 +18,6 @@ export default combineReducers({
     Cart,
     Shipping,
     Payment,
-    Orders
+    Orders,
+    Profile
 })
