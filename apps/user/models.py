@@ -4,6 +4,7 @@ import os
 from apps.cart.models import Cart
 from apps.user_profile.models import UserProfile
 from apps.wishlist.models import WishList
+from datetime import datetime 
 
 
 class UserAccountManager(BaseUserManager):
@@ -13,6 +14,7 @@ class UserAccountManager(BaseUserManager):
         
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
+        date_created = models.DateTimeField(default=datetime.now)
 
         user.set_password(password)
         user.save()
