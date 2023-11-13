@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { 
   add_wishlist_item, 
   get_wishlist_items, 
-  get_wishlist_item_total ,
+  get_wishlist_item_total,
   remove_wishlist_item
 } from '../../redux/actions/wishlist';
 import { 
@@ -21,9 +21,9 @@ import {
 } from "../../redux/actions/cart";
 
 import { useEffect, useState } from "react";
-import { HeartIcon } from '@heroicons/react/outline';
 import ImageGallery from "../../components/product/ImageGallery";
 import { Circles } from  'react-loader-spinner';
+import WishlistHeart from "../../components/product/WishlistHeart";
 import { Navigate } from "react-router-dom";
 
 
@@ -170,15 +170,14 @@ const ProductDetail =({
                       onClick={addToCart}
                       className="max-w-xs flex-1 bg-custom-blue border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-custom-hover-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-custom-blue sm:w-full">
                         Añadir al carrito
-                      </button>
-                      }
-                      <button
-                        onClick={addToWishlist}
-                        className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-                      >
-                        <HeartIcon className="h-6 w-6 flex-shrink-0" aria-hidden="true" />
-                        <span className="sr-only">Añadir a favoritos</span>
-                      </button>
+                      </button>}
+
+                      <WishlistHeart 
+                        product={product}
+                        wishlist={wishlist}
+                        addToWishlist={addToWishlist}
+                      />
+                      
                     </div>
                   </div>
                 </div>
@@ -205,5 +204,5 @@ export default connect(mapStateToProps,{
     add_wishlist_item, 
     get_wishlist_items, 
     get_wishlist_item_total,
-    remove_wishlist_item,
+    remove_wishlist_item
 }) (ProductDetail)

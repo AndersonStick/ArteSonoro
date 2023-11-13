@@ -7,11 +7,16 @@ import {
     get_total,
     get_item_total
 } from "../../redux/actions/cart";
+import {
+    remove_wishlist_item,
+} from "../../redux/actions/wishlist";
 import { useEffect, useState } from "react";
 import CartItem from "../../components/cart/CartItem";
 import { Link } from "react-router-dom";
 import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
 import { setAlert } from "../../redux/actions/alert";
+import WishlistItem from "../../components/cart/WishlistItem";
+
 
 
 const Cart = ({
@@ -25,7 +30,9 @@ const Cart = ({
     total_items,
     remove_item,
     update_item,
-    setAlert
+    setAlert,
+    wishlist_items,
+    remove_wishlist_item
 }) => {
 
     const [render, setRender] = useState(false);    // Puedo mostrar o no información
@@ -66,34 +73,33 @@ const Cart = ({
         )
     }
 
-//     const showWishlistItems = () => {
-//       return(
-//           <div>
-//               {
-//                   wishlist_items && 
-//                   wishlist_items !== null && 
-//                   wishlist_items !== undefined && 
-//                   wishlist_items.length !== 0 && 
-//                   wishlist_items.map((item, index)=>{
-//                       let count = item.count;
-//                       return (
-//                           <div key={index}>
-//                               <WishlistItem 
-//                                   item={item}
-//                                   count={count}
-//                                   update_item={update_item}
-//                                   remove_wishlist_item={remove_wishlist_item}
-//                                   render={render}
-//                                   setRender={setRender}
-//                                   setAlert={setAlert}
-//                               />
-//                           </div>
-//                       );
-//                   })
-//               }
-//           </div>
-//       )
-//   }
+    const showWishlistItems = () => {
+      return(
+          <div>
+              {
+                  wishlist_items && 
+                  wishlist_items !== null && 
+                  wishlist_items !== undefined && 
+                  wishlist_items.length !== 0 && 
+                  wishlist_items.map((item, index)=>{
+                      let count = item.count;
+                      return (
+                          <div key={index}>
+                              <WishlistItem 
+                                  item={item}
+                                  update_item={update_item}
+                                  remove_wishlist_item={remove_wishlist_item}
+                                  render={render}
+                                  setRender={setRender}
+                                  setAlert={setAlert}
+                              />
+                          </div>
+                      );
+                  })
+              }
+          </div>
+      )
+  }
 
     const checkoutButton = () => {
         if (total_items < 1) {
@@ -131,6 +137,8 @@ const Cart = ({
             )
         }
     }
+
+
 
     return (
         <Layout>
@@ -208,8 +216,10 @@ const Cart = ({
                             </div>
                     </section>
                     </div>
+
+                    <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Lista de Deseos</h2>
                     
-                    {/* {showWishlistItems()} */}
+                    {showWishlistItems()}
 
                 </div>
             </div>
@@ -220,6 +230,7 @@ const Cart = ({
 const mapStateToProps = state => ({
     isAuthenticated: state.Auth.isAuthenticated,
     items: state.Cart.items,
+    wishlist_items: state.Wishlist.items,
     amount: state.Cart.amount,
     compare_amount: state.Cart.compare_amount,
     total_items: state.Cart.total_items
@@ -231,5 +242,6 @@ export default connect(mapStateToProps,{
     get_item_total,
     remove_item,
     update_item,
-    setAlert
+    setAlert,
+    remove_wishlist_item
 }) (Cart)
