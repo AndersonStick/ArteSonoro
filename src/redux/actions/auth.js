@@ -23,6 +23,20 @@ import {
 import { setAlert } from './alert';
 import axios from 'axios';
 
+import {
+    get_items,
+    get_total,
+    get_item_total,
+    synch_cart
+} from './cart';
+
+import {
+    get_wishlist_items,
+    get_wishlist_item_total,
+    clear_wishlist
+} from './wishlist';
+
+
 export const check_authenticated = () => async dispatch => {
     if(localStorage.getItem('access')){
         const config = {
@@ -173,6 +187,11 @@ export const login = (email, password) => async dispatch => {
                 type: REMOVE_AUTH_LOADING
             });
             dispatch(setAlert('Inicio de sesión con éxito','bg-green-100'))
+
+            dispatch(synch_cart());
+            dispatch(get_wishlist_items());
+            dispatch(get_wishlist_item_total());
+
         } else {
             dispatch({
                 type: LOGIN_FAIL
@@ -387,4 +406,8 @@ export const logout = () => dispatch => {
         type: LOGOUT
     });
     dispatch(setAlert('Cierre de sesión exitoso', 'bg-green-100'));
+    dispatch(get_items());
+    dispatch(get_item_total());
+    dispatch(get_total());
+    dispatch(clear_wishlist());
 }
