@@ -32,7 +32,7 @@ import ImageGallery from "../../components/product/ImageGallery";
 import { Circles } from  'react-loader-spinner';
 import WishlistHeart from "../../components/product/WishlistHeart";
 import { Navigate } from "react-router-dom";
-// import Stars from '../../components/product/Stars'
+import Stars from '../../components/product/Stars'
 
 const ProductDetail =({
     get_product,
@@ -264,35 +264,35 @@ const ProductDetail =({
                             style={{ cursor: 'pointer' }}
                             onClick={() => filterReviews(5)}
                         >
-                            {/* <Stars rating={5.0} /> */}
+                            <Stars rating={5.0} />
                         </div>
                         <div
                             className='mb-1'
                             style={{ cursor: 'pointer' }}
                             onClick={() => filterReviews(4.0)}
                         >
-                            {/* <Stars rating={4.0} /> */}
+                            <Stars rating={4.0} />
                         </div>
                         <div
                             className='mb-1'
                             style={{ cursor: 'pointer' }}
                             onClick={() => filterReviews(3.0)}
                         >
-                            {/* <Stars rating={3.0} /> */}
+                            <Stars rating={3.0} />
                         </div>
                         <div
                             className='mb-1'
                             style={{ cursor: 'pointer' }}
                             onClick={() => filterReviews(2.0)}
                         >
-                            {/* <Stars rating={2.0} /> */}
+                            <Stars rating={2.0} />
                         </div>
                         <div
                             className='mb-1'
                             style={{ cursor: 'pointer' }}
                             onClick={() => filterReviews(1.0)}
                         >
-                            {/* <Stars rating={1.0} /> */}
+                            <Stars rating={1.0} />
                         </div>
                     </div>
                     {
@@ -390,7 +390,7 @@ const ProductDetail =({
                         </span>
                         </div>
                         <div>
-                          {/* <Stars rating={review.rating}/> */}
+                          <Stars rating={review.rating}/>
                           <h4 className="text-lg font-bold">{review.user}</h4>
                           <p className="mt-1">
                             {review.comment}
