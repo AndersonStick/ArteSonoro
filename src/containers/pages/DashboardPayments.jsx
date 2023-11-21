@@ -178,8 +178,8 @@ const DashboardPayments =({
             
               <img
                 className="h-16 w-auto"
-                src="https://scontent.fbog2-5.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yjNRVC5phxMAX9REqjv&_nc_ht=scontent.fbog2-5.fna&oh=00_AfC77Jdbpu0c-NGuwVjEYHOIy-Sd_Yk18qYjGKd3w-zkNA&oe=65553595"
-                alt="Lodo Motospit"
+                src="https://scontent.fbog17-1.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=5-RHDmqXgzYAX-66Wx0&_nc_zt=23&_nc_ht=scontent.fbog17-1.fna&oh=00_AfCr-39leW6IynY5OmPsfdIk_z-7ijMiCehQE7gVRuF60g&oe=65611315"
+                alt="Logo Motospit"
               />
               
             </div>
