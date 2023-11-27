@@ -49,7 +49,7 @@ const ResetPasswordConfirm = ({
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
-            src="https://scontent.fbog17-1.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=5-RHDmqXgzYAX-66Wx0&_nc_zt=23&_nc_ht=scontent.fbog17-1.fna&oh=00_AfCr-39leW6IynY5OmPsfdIk_z-7ijMiCehQE7gVRuF60g&oe=65611315"
+            src="https://scontent.fbog2-5.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEfMlsfkEnF-am2ad-GZCmcr4zD9KSUWvyvjMP0pJRa_C4oKbpiRxdfRRiLZvQx4uTXiGku0Wh5ZpOX0pLDaLS1&_nc_ohc=kc3MA7hvuCwAX_9cui3&_nc_ht=scontent.fbog2-5.fna&oh=00_AfC72wqTEI3vrNBbTNvTPi4pDoV3KP2sm0h_dNPnh86mtg&oe=6568FC15"
             alt="Logo Motospit"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Restablecer mi contraseña</h2>
