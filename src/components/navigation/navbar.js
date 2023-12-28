@@ -148,7 +148,7 @@ function Navbar({
                 <img
                   className="h-8 w-auto sm:h-20"
                   src="https://scontent.fbog2-5.fna.fbcdn.net/v/t39.30808-6/299573120_390962279840498_6685377062908282532_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEfMlsfkEnF-am2ad-GZCmcr4zD9KSUWvyvjMP0pJRa_C4oKbpiRxdfRRiLZvQx4uTXiGku0Wh5ZpOX0pLDaLS1&_nc_ohc=Do_kQ70weiMAX8CPDWN&_nc_ht=scontent.fbog2-5.fna&oh=00_AfBRT-PaSzU3BmAXoQq-NDuRzynADGtGdI78WqNAGrcr_g&oe=65928355"
-                  alt="Logo Motospit"
+                  alt="Logo Motospit "
                 />
             </Link>
           </div>
