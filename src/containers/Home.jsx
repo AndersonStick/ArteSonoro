@@ -18,7 +18,7 @@ const Home = ({
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.title = 'ArteSonoro Ecommerce';
+        document.title = 'ArteSonoro';
         get_products_by_arrival();
         get_products_by_sold();
     }, []);
