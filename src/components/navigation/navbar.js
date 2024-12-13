@@ -147,7 +147,7 @@ function Navbar({
                 <span className="sr-only">Logo Motospit</span>
                 <img
                   className="h-8 w-auto sm:h-20"
-                  src="https://raw.githubusercontent.com/AndersonStick/ecommerce/main/media/photos/2023/logo/logoMotospit.jpg"
+                  src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2023/1.2/logo_naranja-removebg-preview.png"
                   alt="Logo Motospit"
                 />
             </Link>
