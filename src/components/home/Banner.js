@@ -24,7 +24,7 @@ Haz que tu música brille como nunca antes. 🎶🌟 Regala arte, regala música
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
                           <img
-                            src="https://http2.mlstatic.com/D_NQ_NP_2X_973822-MLU71580227898_092023-F.webp"
+                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2023/1.2/Instrumento_1.jpg"
                             alt="Aceite Repsol"
                             className="w-full h-full object-center object-cover"
                           />

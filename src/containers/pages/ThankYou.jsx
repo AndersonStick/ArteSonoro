@@ -28,7 +28,7 @@ const ThankYou = ({
                         Gracias
                     </p>
                     <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-                        Esperamos que te hayas divertido comprando en Motospit Ecommerce
+                        Esperamos que te hayas divertido comprando en ArteSonoro Ecommerce
                     </p>
                     </div>
                 </div>
