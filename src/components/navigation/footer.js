@@ -22,7 +22,7 @@ const navigation = {
   social: [
     {
       name: 'Facebook',
-      href: 'https://www.facebook.com/profile.php?id=100067801883211',
+      href: '',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -35,7 +35,7 @@ const navigation = {
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/AndersonStick/ProyectoIngesoftI',
+      href: 'https://github.com/AndersonStick/ArteSonoro',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -51,7 +51,9 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <footer className="bg-custom-blue" aria-labelledby="footer-heading">
+    //<footer className="bg-custom-blue" aria-labelledby="footer-heading">
+    <footer className="bg-[#007172]" aria-labelledby="footer-heading">
+
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
