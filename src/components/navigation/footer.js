@@ -116,7 +116,7 @@ export default function Footer() {
               CONTACTO
             </h3>
             <p className="mt-4 text-base text-white">
-            Estamos aquí para ayudarte en cada etapa de tu viaje en moto. Contáctanos si necesitas asesoramiento o repuestos. Tu satisfacción es nuestra prioridad. Gracias por confiar en nosotros
+            Estamos aquí para acompañarte en cada etapa de tu viaje musical. Contáctanos si necesitas asesoramiento o personalización para tus instrumentos. Tu satisfacción y conexión con la música son nuestra prioridad. Gracias por confiar en ArteSonoro.
             </p>
             <form className="mt-4 sm:flex sm:max-w-md">
               <label htmlFor="email-address" className="sr-only">
@@ -152,7 +152,7 @@ export default function Footer() {
             ))}
           </div>
           <p className="mt-8 text-base text-white md:mt-0 md:order-1">
-            2023 El último y nos vamos, Grupo de Ingeniería de Software I.
+            2024 ArteSonoro, Grupo de Marketing y gestión de negocios digitales.
           </p>
         </div>
       </div>
