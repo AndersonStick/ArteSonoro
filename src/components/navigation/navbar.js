@@ -144,11 +144,11 @@ function Navbar({
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-1 sm:px-6 sm:py-1 lg:px-8 md:justify-start md:space-x-10">
           <div>
               <Link to="/" className="flex">
-                <span className="sr-only">Logo Motospit</span>
+                <span className="sr-only">Logo ArteSonoro</span>
                 <img
                   className="h-8 w-auto sm:h-20"
-                  src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2023/1.2/logo_naranja-removebg-preview.png"
-                  alt="Logo Motospit"
+                  src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/Logo/logo_naranja-removebg-preview.png"
+                  alt="Logo ArteSonoro"
                 />
             </Link>
           </div>
@@ -210,8 +210,8 @@ function Navbar({
                 <div>
                   <img
                     className="h-8 w-auto"
-                    src="https://raw.githubusercontent.com/AndersonStick/ecommerce/main/media/photos/2023/logo/logoMotospit.jpg"
-                    alt="Logo Motospit"
+                    src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/Logo/logo_naranja-removebg-preview.png"
+                    alt="Logo ArteSonoro"
                   />
                 </div>
                 <div className="-mr-2">

@@ -158,8 +158,8 @@ const DashboardPaymentDetail =({
                     <Link to="/">
                   <img
                     className="h-16 w-auto cursor-pointer"
-                    src="https://raw.githubusercontent.com/AndersonStick/ecommerce/main/media/photos/2023/logo/logoMotospit.jpg"
-                    alt="Logo Motospit"
+                    src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/Logo/logo_naranja-removebg-preview.png"
+                    alt="Logo ArteSonoro"
                   />
                   </Link>
                 </div>
@@ -191,8 +191,8 @@ const DashboardPaymentDetail =({
             
               <img
                 className="h-16 w-auto"
-                src="https://raw.githubusercontent.com/AndersonStick/ecommerce/main/media/photos/2023/logo/logoMotospit.jpg"
-                alt="Logo Motospit"
+                src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/Logo/logo_naranja-removebg-preview.png"
+                alt="Logo ArteSonoro"
               />
               
             </div>

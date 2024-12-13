@@ -49,8 +49,8 @@ const ResetPasswordConfirm = ({
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
-            src="https://raw.githubusercontent.com/AndersonStick/ecommerce/main/media/photos/2023/logo/logoMotospit.jpg"
-            alt="Logo Motospit"
+            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/Logo/logo_naranja-removebg-preview.png"
+            alt="Logo ArteSonoro"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Restablecer mi contraseña</h2>
         </div>

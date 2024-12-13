@@ -55,8 +55,8 @@ function Signup({
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
-            src="https://raw.githubusercontent.com/AndersonStick/ecommerce/main/media/photos/2023/logo/logoMotospit.jpg"
-            alt="Logo motospit"
+            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/Logo/logo_naranja-removebg-preview.png"
+            alt="Logo ArteSonoro"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Crear una nueva cuenta</h2>
           <p className="mt-2 text-center text-sm text-gray-600">

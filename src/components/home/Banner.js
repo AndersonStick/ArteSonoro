@@ -8,8 +8,8 @@ export default function Example() {
                 🎵✨ ¡Vive la música esta Navidad con ArteSonoro! 🎄🎁
                 </h1>
                 <p className="mt-4 text-xl text-gray-500">
-                🎸❄️ Dale a tu instrumento el diseño que merece estas fiestas. ¡Descuentos exclusivos en personalizaciones únicas! 🎨✨
-Haz que tu música brille como nunca antes. 🎶🌟 Regala arte, regala música. 🎁💝
+                🎸 Dale a tu instrumento el diseño que merece estas fiestas. ¡Descuentos exclusivos en personalizaciones únicas! 🎨
+Haz que tu música brille como nunca antes. 🎶 Regala arte, regala música. 🎁
                 </p>
               </div>
             <div>
@@ -24,38 +24,15 @@ Haz que tu música brille como nunca antes. 🎶🌟 Regala arte, regala música
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
                           <img
-                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2023/1.2/Instrumento_1.jpg"
-                            alt="Aceite Repsol"
+                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/1.2/Instrumentos/guitarra.webp"
+                            alt="Guitarra personalizada"
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
                           <img
-                            src="https://http2.mlstatic.com/D_NQ_NP_2X_623521-MCO47951280532_102021-F.webp"
-                            alt="Barras de suspension"
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                      </div>
-                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="https://http2.mlstatic.com/D_NQ_NP_2X_940521-MCO71635109274_092023-F.webp"
-                            alt="Bujias"
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="https://http2.mlstatic.com/D_NQ_NP_2X_868241-MCO44358226567_122020-F.webp"
-                            alt="Kit de arrastre cassarella"
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
-                            src="https://http2.mlstatic.com/D_NQ_NP_2X_747210-MCO44172916376_112020-F.webp"
-                            alt="Kit delantero nkd"
+                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/1.2/Instrumentos/guitarra2.webp"
+                            alt="Guitarra personalizada 2"
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
@@ -63,15 +40,38 @@ Haz que tu música brille como nunca antes. 🎶🌟 Regala arte, regala música
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
                           <img
-                            src="https://http2.mlstatic.com/D_NQ_NP_2X_672877-MLU70794469184_082023-F.webp"
-                            alt="Llantas Diablo Rosso III"
+                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/1.2/Instrumentos/violin.webp"
+                            alt="Violin personalizado"
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
                           <img
-                            src="https://http2.mlstatic.com/D_NQ_NP_2X_653472-MCO50825449659_072022-F.webp"
-                            alt="Farola NS 200"
+                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/1.2/Instrumentos/percusion.webp"
+                            alt="Tambor personalizado"
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/1.2/Instrumentos/accesorios.webp"
+                            alt="Accesorios musicales personalizados"
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/1.2/Instrumentos/percusion2.webp"
+                            alt="Pandereta personalizada"
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <img
+                            src="https://raw.githubusercontent.com/AndersonStick/ArteSonoro/refs/heads/main/media/photos/2024/1.2/Instrumentos/bateria.webp"
+                            alt="Bateria personalizada"
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
