@@ -25,10 +25,8 @@ ALLOWED_HOSTS = [
     'www.motospit.com.co',
     'localhost',
     '127.0.0.1',
-    'ecommerce-primer-deploy-nuevo-repo.onrender.com',
-    'https://ecommerce-primer-deploy-nuevo-repo.onrender.com',
-    'https://motospitsprint2.onrender.com',
-    'motospitsprint2.onrender.com'
+    'https://artesonoro.onrender.com',
+    'artesonoro.onrender.com'
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -239,11 +237,13 @@ AUTH_USER_MODEL='user.UserAccount'
 #EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'Motospit - Ecommerce de repuestos de motos <motospitecommerce@gmail.com>'
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+
+
+EMAIL_HOST = env('EMAIL_HOST', default='localhost')
+EMAIL_PORT = env('EMAIL_PORT', cast=int, default=25)
+EMAIL_HOST_USER = env('EMAIL_HOST_USER', default=None)
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default=None)
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=False)
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
