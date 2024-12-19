@@ -108,7 +108,7 @@ const Cart = ({
                     <Link to='/shop'>
                         <button
                         className="w-full bg-custom-blue border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-custom-hover-blue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-custom-blue">
-                        Buscar repuestos
+                        Buscar Instrumentos
                         </button>
                     </Link>
                 </>
