@@ -25,8 +25,9 @@ ALLOWED_HOSTS = [
     'www.motospit.com.co',
     'localhost',
     '127.0.0.1',
-    'https://artesonoro.onrender.com',
-    'artesonoro.onrender.com'
+    'http://artesonoro.onrender.com',
+    'artesonoro.onrender.com',
+    'http://57hhg92w-3000.use2.devtunnels.ms/'
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -109,7 +110,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 DATABASES = {
-    "default" : dj_database_url.parse(env('DATABASE_URL'))
+    "default" : env.db("DATABASE_URL", default="postgres://artesonorolocal")
 }
 
 
@@ -119,11 +120,10 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
     'http://motospit.com.co',
-    'https://motospitsprint2.onrender.com',
     'http://motospitsprint2.onrender.com',
-    'https://artesonoro.onrender.com',
-    'artesonoro.onrender.com',
-    
+    'http://motospitsprint2.onrender.com',
+    'http://artesonoro.onrender.com',
+    'http://57hhg92w-3000.use2.devtunnels.ms'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -132,11 +132,12 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
     'http://motospit.com.co',
-    'https://motospitsprint2.onrender.com',
+    'http://motospitsprint2.onrender.com',
     'http://motospitsprint2.onrender.com',
     'motospitsprint2.onrender.com',
-    'https://artesonoro.onrender.com',
-    'artesonoro.onrender.com'
+    'http://artesonoro.onrender.com',
+    'artesonoro.onrender.com',
+    'http://57hhg92w-3000.use2.devtunnels.ms/'
 ]
 
 PASSWORD_HASHERS = [
