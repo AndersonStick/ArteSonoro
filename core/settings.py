@@ -121,6 +121,8 @@ CORS_ORIGIN_WHITELIST = [
     'http://motospit.com.co',
     'https://motospitsprint2.onrender.com',
     'http://motospitsprint2.onrender.com',
+    'https://artesonoro.onrender.com',
+    'artesonoro.onrender.com',
     
 ]
 
@@ -132,7 +134,9 @@ CSRF_TRUSTED_ORIGINS = [
     'http://motospit.com.co',
     'https://motospitsprint2.onrender.com',
     'http://motospitsprint2.onrender.com',
-    'motospitsprint2.onrender.com'
+    'motospitsprint2.onrender.com',
+    'https://artesonoro.onrender.com',
+    'artesonoro.onrender.com'
 ]
 
 PASSWORD_HASHERS = [
